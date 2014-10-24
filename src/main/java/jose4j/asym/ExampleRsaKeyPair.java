@@ -2,7 +2,36 @@ package jose4j.asym;
 
 import org.jose4j.base64url.SimplePEMEncoder;
 
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
+
 class ExampleRsaKeyPair {
+
+  static RSAPrivateKey createPrivateKey() {
+    try {
+      KeySpec ks = new PKCS8EncodedKeySpec(privateKey());
+      KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+      return (RSAPrivateKey) keyFactory.generatePrivate(ks);
+    } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  static RSAPublicKey createPublicKey() {
+    try {
+      X509EncodedKeySpec spec = new X509EncodedKeySpec(publicKey());
+      KeyFactory kf = KeyFactory.getInstance("RSA");
+      return (RSAPublicKey) kf.generatePublic(spec);
+    } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+      throw new RuntimeException(e);
+    }
+  }
 
   static byte[] privateKey() {
     /*

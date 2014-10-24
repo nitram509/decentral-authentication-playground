@@ -4,12 +4,7 @@ import org.jose4j.jws.AlgorithmIdentifiers;
 import org.jose4j.jws.JsonWebSignature;
 import org.jose4j.lang.JoseException;
 
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
-import java.security.spec.PKCS8EncodedKeySpec;
 
 public class Jose4jProvider {
 
@@ -26,7 +21,7 @@ public class Jose4jProvider {
     jws.setPayload(examplePayload);
     jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.RSA_USING_SHA384);
 
-    PrivateKey privateKey = createPrivateKey();
+    PrivateKey privateKey = ExampleRsaKeyPair.createPrivateKey();
     jws.setKey(privateKey);
 
     // Sign the JWS and produce the compact serialization or complete JWS representation, which
@@ -40,16 +35,6 @@ public class Jose4jProvider {
     }
 
     return jwsCompactSerialization;
-  }
-
-  private PrivateKey createPrivateKey() {
-    try {
-      KeySpec ks = new PKCS8EncodedKeySpec(ExampleRsaKeyPair.privateKey());
-      KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-      return keyFactory.generatePrivate(ks);
-    } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-      throw new RuntimeException(e);
-    }
   }
 
 }
