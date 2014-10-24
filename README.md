@@ -3,9 +3,10 @@
 
 ### Current candidates
 
-* JSON Web Token (JWT)
+* JSON Web Token (JWT) & JWE & JWS
    * https://github.com/auth0/java-jwt
    * https://github.com/jwtk/jjwt
+   * https://bitbucket.org/b_c/jose4j/wiki/Home
 * Macaroons
    * https://github.com/nitram509/jmacaroons
 * Home made
