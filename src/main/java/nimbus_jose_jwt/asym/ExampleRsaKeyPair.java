@@ -2,9 +2,38 @@ package nimbus_jose_jwt.asym;
 
 import org.jose4j.base64url.SimplePEMEncoder;
 
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
+
 class ExampleRsaKeyPair {
 
-  static byte[] privateKey() {
+  static RSAPrivateKey createPrivateKey() {
+    try {
+      KeySpec ks = new PKCS8EncodedKeySpec(deserializePrivateKey());
+      KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+      return (RSAPrivateKey) keyFactory.generatePrivate(ks);
+    } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  static RSAPublicKey createPublicKey() {
+    try {
+      X509EncodedKeySpec spec = new X509EncodedKeySpec(deserializePublicKey());
+      KeyFactory kf = KeyFactory.getInstance("RSA");
+      return (RSAPublicKey) kf.generatePublic(spec);
+    } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  static byte[] deserializePrivateKey() {
     /*
      * openssl genrsa 2048 > rsa.private
      * openssl pkcs8 -topk8 -inform PEM -outform PEM -in rsa.private  -nocrypt > privatekey.pem
@@ -41,9 +70,9 @@ class ExampleRsaKeyPair {
     );
   }
 
-  static byte[] publicKey() {
+  static byte[] deserializePublicKey() {
     /*
-     * openssl genrsa 2048 > rsa.private     // same file as from above privateKey !!!
+     * openssl genrsa 2048 > rsa.private     // same file as from above deserializePrivateKey !!!
      * openssl rsa -inform PEM -in rsa.private -pubout
      */
     return SimplePEMEncoder.decode(
