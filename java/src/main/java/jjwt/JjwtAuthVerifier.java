@@ -1,4 +1,4 @@
-package jwt.jjwt;
+package jjwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

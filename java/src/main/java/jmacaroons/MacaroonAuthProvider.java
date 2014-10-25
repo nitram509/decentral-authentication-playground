@@ -1,4 +1,4 @@
-package macaroons;
+package jmacaroons;
 
 import com.github.nitram509.jmacaroons.Macaroon;
 import com.github.nitram509.jmacaroons.MacaroonsBuilder;

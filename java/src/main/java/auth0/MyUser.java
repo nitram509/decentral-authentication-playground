@@ -1,4 +1,4 @@
-package jwt.auth0;
+package auth0;
 
 /**
  * Sample object for serialization
