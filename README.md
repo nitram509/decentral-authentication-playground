@@ -35,7 +35,7 @@ IMHO the JW* standard family is way to complicated to use,
 because nearly all crypto building blocks are available and can be used.
 The library support differs a lot.
 
-Nimbus JOSE + JWT (by Connect2Id) seems to be the most sophisticated implementation.
+Nimbus JOSE + JWT (by Connect2Id) seems to be the most convenient implementation.
 
 ### My two cents: Macaroons
 
