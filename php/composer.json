@@ -1,0 +1,13 @@
+{
+  "name": "maki/php",
+  "description": "jwt test project",
+  "authors": [
+    {
+      "name": "nitram509",
+      "email": "maki@bitkings.de"
+    }
+  ],
+  "require": {
+    "gamegos/jwt": "~0.1"
+  }
+}
