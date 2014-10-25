@@ -3,6 +3,9 @@
 
 ### Current candidates
 
+
+#### Java
+
 * JSON Web Token (JWT), JSON Web Signature (JWS), JSON Web Encryption (JWE)
    * https://github.com/auth0/java-jwt
    * https://github.com/jwtk/jjwt
@@ -12,6 +15,13 @@
    * https://github.com/nitram509/jmacaroons
 * Home made
    * https://github.com/otto-de/hmac-auth
+
+
+#### PHP
+
+* JSON Web Token (JWT), JSON Web Signature (JWS), JSON Web Encryption (JWE)
+   * https://github.com/Gamegos/php-jwt
+
 
 ### My two cents: JW*
 
