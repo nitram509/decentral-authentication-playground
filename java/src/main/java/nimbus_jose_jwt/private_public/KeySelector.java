@@ -1,6 +1,8 @@
-package nimbus_jose_jwt.asym;
+package nimbus_jose_jwt.private_public;
 
 import com.nimbusds.jose.jwk.*;
+import example_keys.Alice;
+import example_keys.Bob;
 
 import java.util.List;
 
@@ -12,8 +14,8 @@ public class KeySelector {
   }
 
   private void printJsonWebKey() {
-    RSAKey rsaKey = new RSAKey.Builder(ExampleRsaKeyPair.createPublicKey())
-        .privateKey(ExampleRsaKeyPair.createPrivateKey())
+    RSAKey rsaKey = new RSAKey.Builder(Alice.getPublicKey())
+        .privateKey(Alice.getPrivateKey())
         .keyID("id-0815")
         .keyUse(KeyUse.SIGNATURE)
         .build();
@@ -37,7 +39,7 @@ public class KeySelector {
   }
 
   private RSAKey createPublicKey(String keyId) {
-    return new RSAKey.Builder(ExampleRsaKeyPair.createPublicKey())
+    return new RSAKey.Builder(Bob.getPublicKey())
         .keyID(keyId)
         .keyUse(KeyUse.SIGNATURE)
         .build();

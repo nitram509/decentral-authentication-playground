@@ -1,4 +1,4 @@
-package nimbus_jose_jwt.asym;
+package nimbus_jose_jwt.private_public;
 
 import org.jose4j.base64url.SimplePEMEncoder;
 
@@ -12,7 +12,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 
-class RsaPublicKey {
+class RsaPublicKey_from_PHP_counterpart {
 
   static RSAPublicKey createPublicKey() {
     try {

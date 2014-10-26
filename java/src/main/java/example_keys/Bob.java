@@ -13,7 +13,7 @@ import java.security.spec.X509EncodedKeySpec;
 
 public class Bob {
 
-  static RSAPrivateKey createPrivateKey() {
+  public static RSAPrivateKey getPrivateKey() {
     try {
       KeySpec ks = new PKCS8EncodedKeySpec(deserializePrivateKey());
       KeyFactory keyFactory = KeyFactory.getInstance("RSA");
@@ -23,7 +23,7 @@ public class Bob {
     }
   }
 
-  static RSAPublicKey createPublicKey() {
+  public static RSAPublicKey getPublicKey() {
     try {
       X509EncodedKeySpec spec = new X509EncodedKeySpec(deserializePublicKey());
       KeyFactory kf = KeyFactory.getInstance("RSA");

@@ -1,11 +1,8 @@
-package jmacaroons.asym;
+package jmacaroons.shared_secret;
 
 import com.github.nitram509.jmacaroons.Macaroon;
 import com.github.nitram509.jmacaroons.MacaroonsVerifier;
 import com.github.nitram509.jmacaroons.verifier.TimestampCaveatVerifier;
-
-import javax.crypto.Cipher;
-import java.security.interfaces.RSAPrivateKey;
 
 public class MacaroonAuthVerifier {
 
@@ -15,7 +12,6 @@ public class MacaroonAuthVerifier {
   }
 
   public void verify(Macaroon macaroon) {
-
     String secret = "geheim";
 
     MacaroonsVerifier verifier = new MacaroonsVerifier(macaroon)

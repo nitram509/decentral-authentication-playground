@@ -1,9 +1,10 @@
-package nimbus_jose_jwt.asym;
+package nimbus_jose_jwt.private_public;
 
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSVerifier;
 import com.nimbusds.jose.crypto.RSASSAVerifier;
 import com.nimbusds.jwt.SignedJWT;
+import example_keys.Alice;
 
 import java.security.interfaces.RSAPublicKey;
 import java.text.ParseException;
@@ -14,9 +15,9 @@ public class NimbusVerifier {
     try {
       String token = new NimbusProvider().create();
       NimbusVerifier verifier = new NimbusVerifier();
-      verifier.verify(token, ExampleRsaKeyPair.createPublicKey());
+      verifier.verify(token, Alice.getPublicKey());
       System.out.println("-------");
-      verifier.verify(tokenFromPhpExampleCode(), RsaPublicKey.createPublicKey());
+      verifier.verify(tokenFromPhpExampleCode(), RsaPublicKey_from_PHP_counterpart.createPublicKey());
     } catch (ParseException | JOSEException e) {
       throw new RuntimeException(e);
     }

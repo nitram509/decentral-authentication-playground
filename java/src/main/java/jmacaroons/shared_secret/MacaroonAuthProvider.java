@@ -1,4 +1,4 @@
-package jmacaroons;
+package jmacaroons.shared_secret;
 
 import com.github.nitram509.jmacaroons.Macaroon;
 import com.github.nitram509.jmacaroons.MacaroonsBuilder;

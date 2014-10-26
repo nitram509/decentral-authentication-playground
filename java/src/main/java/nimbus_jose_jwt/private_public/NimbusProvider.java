@@ -1,4 +1,4 @@
-package nimbus_jose_jwt.asym;
+package nimbus_jose_jwt.private_public;
 
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
@@ -7,6 +7,7 @@ import com.nimbusds.jose.JWSSigner;
 import com.nimbusds.jose.crypto.RSASSASigner;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
+import example_keys.Alice;
 
 import java.util.Date;
 
@@ -25,7 +26,7 @@ public class NimbusProvider {
   String create() throws JOSEException {
 
 // Create RSA-signer with the private key
-    JWSSigner signer = new RSASSASigner(ExampleRsaKeyPair.createPrivateKey());
+    JWSSigner signer = new RSASSASigner(Alice.getPrivateKey());
 
 // Prepare JWT with claims set
     JWTClaimsSet claimsSet = new JWTClaimsSet();
