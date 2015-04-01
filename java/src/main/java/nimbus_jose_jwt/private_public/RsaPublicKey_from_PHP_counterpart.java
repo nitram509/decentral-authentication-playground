@@ -12,9 +12,9 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 
-class RsaPublicKey_from_PHP_counterpart {
+public class RsaPublicKey_from_PHP_counterpart {
 
-  static RSAPublicKey createPublicKey() {
+  public static RSAPublicKey createPublicKey() {
     try {
       X509EncodedKeySpec spec = new X509EncodedKeySpec(deserializePublicKey());
       KeyFactory kf = KeyFactory.getInstance("RSA");

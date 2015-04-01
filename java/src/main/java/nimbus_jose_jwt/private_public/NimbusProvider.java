@@ -23,7 +23,7 @@ public class NimbusProvider {
     }
   }
 
-  String create() throws JOSEException {
+  public String create() throws JOSEException {
 
 // Create RSA-signer with the private key
     JWSSigner signer = new RSASSASigner(Alice.getPrivateKey());
