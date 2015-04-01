@@ -11,7 +11,7 @@
    * https://github.com/jwtk/jjwt
    * https://bitbucket.org/b_c/jose4j/wiki/Home
    * http://connect2id.com/products/nimbus-jose-jwt
-      * Also two test, verifying implementation vulnerabilities, as described in blog post https://auth0.com/blog/2015/03/31/critical-vulnerabilities-in-json-web-token-libraries/
+      * Also two tests, verifying implementation vulnerabilities, as described in blog post https://auth0.com/blog/2015/03/31/critical-vulnerabilities-in-json-web-token-libraries/
 * Macaroons
    * https://github.com/nitram509/jmacaroons
 * Home made
