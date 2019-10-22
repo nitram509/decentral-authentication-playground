@@ -8,6 +8,10 @@
   <artifactId>decentral-authentication-playground</artifactId>
   <version>1.0-SNAPSHOT</version>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.glassfish</groupId>
@@ -62,7 +66,7 @@
     <dependency>
       <groupId>com.nimbusds</groupId>
       <artifactId>nimbus-jose-jwt</artifactId>
-      <version>3.2</version>
+      <version>8.2</version>
     </dependency>
 
     <dependency>

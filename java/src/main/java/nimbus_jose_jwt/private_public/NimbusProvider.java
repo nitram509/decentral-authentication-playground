@@ -29,10 +29,11 @@ public class NimbusProvider {
     JWSSigner signer = new RSASSASigner(Alice.getPrivateKey());
 
 // Prepare JWT with claims set
-    JWTClaimsSet claimsSet = new JWTClaimsSet();
-    claimsSet.setSubject("alice");
-    claimsSet.setIssueTime(new Date());
-    claimsSet.setIssuer("http://example.com");
+    JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
+            .subject("alice")
+            .issueTime(new Date())
+            .issuer("http://example.com")
+            .build();
 
     String keyId = "id-0815";
     JWSHeader header = new JWSHeader(JWSAlgorithm.RS256, null, null, null, null, null, null, null, null, null, keyId, null, null);

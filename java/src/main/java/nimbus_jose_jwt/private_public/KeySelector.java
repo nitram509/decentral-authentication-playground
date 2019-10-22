@@ -30,10 +30,12 @@ public class KeySelector {
     jwkSet.getKeys().add(createPublicKey("foobar"));
     jwkSet.getKeys().add(createPublicKey("id-42-nonsense"));
 
-    JWKSelector selector = new JWKSelector();
-    selector.setKeyID("foobar");
-    selector.setKeyType(KeyType.RSA);
-    selector.setKeyUses(KeyUse.SIGNATURE);
+    JWKMatcher matcher = new JWKMatcher.Builder()
+            .keyID("foobar")
+            .keyType(KeyType.RSA)
+            .keyUses(KeyUse.SIGNATURE)
+            .build();
+    JWKSelector selector = new JWKSelector(matcher);
     List<JWK> select = selector.select(jwkSet);
     System.out.println("Selected keyId: " + select.get(0).getKeyID());
   }
